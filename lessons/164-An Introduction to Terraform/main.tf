@@ -1,5 +1,5 @@
 provider "aws" {
-  region = "us-east-2"
+  region = "eu-north-1"
 }
 
 data "aws_vpc" "default" {
@@ -13,27 +13,27 @@ data "aws_subnets" "default" {
   }
 }
 
-resource "aws_instance" "example" {
-  ami           = "ami-0a695f0d95cefc163"
-  instance_type = "t3.micro"
+# resource "aws_instance" "example" {
+#   ami           = "ami-07c8c1b18ca66bb07"
+#   instance_type = "t3.micro"
 
-  vpc_security_group_ids = [aws_security_group.instance.id]
+#   vpc_security_group_ids = [aws_security_group.instance.id]
 
-  user_data = <<-EOF
-              #!/bin/bash
-              echo "Hello, World" > index.html
-              nohup busybox httpd -f -p ${var.server_port} &
-              EOF
+#   user_data = <<-EOF
+#               #!/bin/bash
+#               echo "Hello, World" > index.html
+#               nohup busybox httpd -f -p ${var.server_port} &
+#               EOF
 
-  user_data_replace_on_change = true
+#   user_data_replace_on_change = true
 
-  tags = {
-    Name = "my-ubuntu"
-  }
-}
+#   tags = {
+#     Name = "my-ubuntu"
+#   }
+# }
 
 resource "aws_launch_configuration" "example" {
-  image_id        = "ami-0a695f0d95cefc163"
+  image_id        = "ami-07c8c1b18ca66bb07"
   instance_type   = "t3.micro"
   security_groups = [aws_security_group.instance.id]
 
@@ -43,11 +43,11 @@ resource "aws_launch_configuration" "example" {
               nohup busybox httpd -f -p ${var.server_port} &
               EOF
 
-  # Required with an autoscaling group.
+   # Required with an autoscaling group.
   lifecycle {
     create_before_destroy = true
   }
-}
+ }
 
 resource "aws_security_group" "instance" {
   name = "web"
@@ -99,7 +99,7 @@ resource "aws_lb_listener" "http" {
       status_code  = 404
     }
   }
-}
+ }
 
 resource "aws_security_group" "alb" {
   name = "web-alb"

@@ -1,4 +1,4 @@
-bucket         = "antonputra-terraform-state"
+bucket         = "milozone-terraform-state"
 dynamodb_table = "terraform-state"
-region         = "us-east-2"
+region         = "eu-north-1"
 encrypt        = true

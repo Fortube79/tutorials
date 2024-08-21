@@ -1,9 +1,9 @@
 provider "aws" {
-  region = "us-east-2"
+  region = "eu-north-1"
 }
 
 resource "aws_s3_bucket" "terraform_state" {
-  bucket = "antonputra-terraform-state"
+  bucket = "milozone-terraform-state"
 
   lifecycle {
     prevent_destroy = true

@@ -1,5 +1,5 @@
 provider "aws" {
-  region = "us-east-2"
+  region = "eu-north-1"
 }
 
 terraform {
@@ -20,26 +20,26 @@ resource "aws_security_group" "instance" {
 }
 
 resource "aws_instance" "example" {
-  ami           = "ami-0a695f0d95cefc163"
+  ami           = "ami-07c8c1b18ca66bb07"
   instance_type = "t3.micro"
 
   vpc_security_group_ids = [aws_security_group.instance.id]
 
-  user_data = templatefile("user-data.sh", {
+  user_data = templatefile("user-data.sh", {  
     server_port      = var.server_port
     postgres_address = data.terraform_remote_state.postgres.outputs.address
     postgres_port    = data.terraform_remote_state.postgres.outputs.port
   })
 
-  user_data_replace_on_change = true
+   user_data_replace_on_change = true
 }
 
 data "terraform_remote_state" "postgres" {
   backend = "s3"
 
   config = {
-    bucket = "antonputra-terraform-state"
+    bucket = "milozone-terraform-state"
     key    = "staging/data-stores/postgres/terraform.tfstate"
-    region = "us-east-2"
+    region = "eu-north-1"
   }
 }

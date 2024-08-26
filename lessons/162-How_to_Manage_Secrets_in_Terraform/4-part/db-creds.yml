@@ -1,0 +1,17 @@
+username: ENC[AES256_GCM,data:J0MlNQ==,iv:VjOrA1JzJ8Dxq+AqWSJz1cim+zsVLDN8aV05RbNkm4Q=,tag:EATBhkKXx1zd/lXcbYnIBw==,type:str]
+password: ENC[AES256_GCM,data:31j2FZRpDOX4,iv:JPbme7ubRwfRQ2NLPytpNHqYqLwiYnvb1B+gDT3xgCs=,tag:Y27z47mPZCJeZgbtE78cIQ==,type:str]
+sops:
+    kms:
+        - arn: arn:aws:kms:eu-north-1:905418181993:key/2ea94e5c-2ff2-4e97-949d-0a836aac29c8
+          created_at: "2024-08-21T18:38:48Z"
+          enc: AQICAHgSzvo48rJaEjtat1kxqGRDZdYpCqbS9BsOrI5M7iWynQEDjcVMBVQ1G33cngJR3roAAAAAfjB8BgkqhkiG9w0BBwagbzBtAgEAMGgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMjvONQY0HEY8aCzKEAgEQgDt6Mqfojhva7IuQSZXPpMUCdipQgkWxelhDw2sekl4FmBsy37iLDwIZbMbz/6f7HqbslqYjJGfDMx7cxQ==
+          aws_profile: ""
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age: []
+    lastmodified: "2024-08-21T18:40:24Z"
+    mac: ENC[AES256_GCM,data:8gO1+q1HJN4Au/V67sJ8K3zbBg3jVZbTLy2jwdN0PnGTZ1037lIiLYOpXfCRBUjILnzDtOWwA/u89BzttSLcSqFPgho9tiQkjAT8haCiA+qOyhJ3TF31mv1IoBPMtUKFKkPcpaj10LXUq4ODYD26FHzcU3JBsb+2b7rLcDYXIJg=,iv:TZBsNkvWnzWCm/MalAdZXOYPS7nx+eEa/cELPlvCDRA=,tag:e+9gZGYrgpdahr/sD6hUOA==,type:str]
+    pgp: []
+    unencrypted_suffix: _unencrypted
+    version: 3.7.3
